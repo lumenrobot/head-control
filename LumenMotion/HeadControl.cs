@@ -160,11 +160,12 @@ namespace LumenMotion
         public void start()
         {
             Console.WriteLine("Starting connection...");
-            motion = new MotionProxy("169.254.89.225", 9559);
-            posture = new RobotPostureProxy("169.254.89.225", 9559);
+            motion = new MotionProxy("167.205.66.229", 9559);
+            posture = new RobotPostureProxy("167.205.66.229", 9559);
             motion.setStiffnesses(new ArrayList() { "HeadYaw", "HeadPitch" }, new ArrayList() { 0.5f, 0.5f });
             ConnectionFactory factory = new ConnectionFactory();
-            factory.Uri = "amqp://guest:guest@localhost/%2F";
+            //factory.Uri = "amqp://guest:guest@localhost/%2F";
+            factory.Uri = "amqp://localhost/%2F";
             IConnection connection = factory.CreateConnection();
             IModel channelGet = connection.CreateModel();
             QueueDeclareOk queue = channelGet.QueueDeclare("", true, false, true, null);
