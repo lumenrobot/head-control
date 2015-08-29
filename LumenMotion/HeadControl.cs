@@ -160,8 +160,9 @@ namespace LumenMotion
         public void start()
         {
             Console.WriteLine("Starting connection...");
-            motion = new MotionProxy("167.205.66.229", 9559);
-            posture = new RobotPostureProxy("167.205.66.229", 9559);
+            string naoIp = "169.254.89.225";
+            motion = new MotionProxy(naoIp, 9559);
+            posture = new RobotPostureProxy(naoIp, 9559);
             motion.setStiffnesses(new ArrayList() { "HeadYaw", "HeadPitch" }, new ArrayList() { 0.5f, 0.5f });
             ConnectionFactory factory = new ConnectionFactory();
             //factory.Uri = "amqp://guest:guest@localhost/%2F";
